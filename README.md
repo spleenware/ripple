@@ -11,7 +11,7 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 # Ver 2 firmware builds (with 'commander' app support)
 
-## Repater Node - Adafruit Feather M0 - 915MHz,  (only USB-OTG supported)
+## Repeater Node - Adafruit Feather M0 - 915MHz,  (only USB-OTG supported)
 
 ~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v Ripple-915-USB.feather_m0.bin -R 
 
