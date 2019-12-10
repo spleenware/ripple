@@ -24,10 +24,6 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleTracker-915-USB.feather_m0.bin -R 
 
-## GPS Tracker Node - TTGO T-Beam - 433 to 915MHz (configurable),  (only USB-OTG supported)
-
-~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.2/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.2/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 RippleTracker-915-USB.t-beam.bin 0x8000 RippleTracker-915-USB.t-beam.partitions.bin
-
 ## Sensor Node - Adafruit Feather M0 - 433 to 915MHz (configurable),  (only USB-OTG supported)
 
 ~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleSensor-915-USB.feather_m0.bin -R 
@@ -72,4 +68,8 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 ## Heltech ESP32 LORA V2 - 915MHz, for Bluetooth Classic with handset
 
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.2/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.2/tools/sdk/bin/bootloader_qio_80m.bin 0x10000 Ripple-915-Bluetooth.heltec_v2_wifi_lora_32.bin 0x8000 Ripple-915-Bluetooth.heltech_v2.partitions.bin 
+
+## GPS Tracker Node - TTGO T-Beam - 433 to 915MHz (configurable),  (only USB-OTG supported)
+
+~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.2/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.2/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 RippleTracker-915-USB.t-beam.bin 0x8000 RippleTracker-915-USB.t-beam.partitions.bin
 
