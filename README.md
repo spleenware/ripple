@@ -4,8 +4,11 @@ Arduino Firmware for Ripple LoRa mesh
 ## Pre-requisites
 
 You will need to install the Arduino IDE and add support for the following Boards:
- 1. Adafruit Feather M0 .   -OR-
- 2. Heltech WiFi Lora 32 (part of the ESP32 family)
+ 1. Adafruit Feather M0
+ 2. TTGO WiFi Lora 32, v1 to v2 (ESP32)
+ 2. Heltech WiFi Lora 32  (ESP32)
+ 3. Sparkfun Lora Gateway (ESP32)
+ 4. SParkfun Pro RF
  
 Checkout the firmware bin(ary) images to your local machine, and from the command-line, use one of the following command incantations to flash the firmware to your board:
 
