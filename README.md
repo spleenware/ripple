@@ -16,7 +16,7 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ## Repeater OR Messenger - Adafruit Feather M0 - 433 to 915MHz (configurable),  (USB-OTG only)
 
-~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v Ripple-915-USB.feather_m0.bin -R 
+~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v Ripple-USB.Feather_m0.bin -R 
 
 ## Repeater OR Messenger - Sparkfun Pro RF - 433 to 915MHz (configurable),  (USB-OTG only)
 
