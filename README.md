@@ -10,7 +10,9 @@ You will need to install the Arduino IDE and add support for the following Board
  3. Sparkfun Lora Gateway (ESP32)
  4. SParkfun Pro RF
  
-Checkout the firmware bin(ary) images to your local machine, and from the command-line, use one of the following command incantations to flash the firmware to your board:
+FOr help on getting ESP32 support installed see this article: https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/
+
+Checkout the firmware bin(ary) images to your local machine, and from the command-line, use one of the following command incantations to flash the firmware to your board (NOTE: each command is ONE line only!):
 
 # Ver 2 firmware builds (with 'commander' app support)
 
