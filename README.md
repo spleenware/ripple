@@ -16,6 +16,19 @@ Alternatively, for flashing the ESP32 boards, you can just install the 'esptool'
 
 Checkout the firmware bin(ary) images to your local machine, and from the command-line, use one of the following command incantations to flash the firmware to your board (NOTE: each command is ONE line only!):
 
+# Ver 3 firmware builds (with 'commander' Low Power Mode support)
+
+## Adafruit Feather M0
+
+### Repeater OR Messenger - 433 to 915MHz (configurable),  (USB-OTG)
+
+~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleV3-USB-feather.bin -R 
+
+### GPS Tracker Node - 433 to 915MHz (configurable),  (USB-OTG)
+
+~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleTrackerV3-USB-feather.bin -R 
+
+
 # Ver 2 firmware builds (with 'commander' app support)
 
 ## Adafruit Feather M0
@@ -24,11 +37,11 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v Ripple-USB.Feather_m0.bin -R 
 
-### GPS Tracker Node - Adafruit Feather M0 - 433 to 915MHz (configurable),  (only USB-OTG supported)
+### GPS Tracker Node - 433 to 915MHz (configurable),  (only USB-OTG supported)
 
 ~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleTracker-915-USB.feather_m0.bin -R 
 
-### Sensor Node - Adafruit Feather M0 - 433 to 915MHz (configurable),  (only USB-OTG supported)
+### Sensor Node - 433 to 915MHz (configurable),  (only USB-OTG supported)
 
 ~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleSensor-915-USB.feather_m0.bin -R 
 
