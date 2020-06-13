@@ -1,18 +1,23 @@
 # ripple
 Arduino Firmware for Ripple LoRa mesh
 
-## Pre-requisites
+## ESP Targets (flashing)
 
-You will need to install the Arduino IDE and add support for the following Boards:
+There is a very handy flashing tool you can install for flashing the firmware binaries to any of the ESP32 targets. Just install the ESPHome Flasher tool from here:  https://github.com/esphome/esphome-flasher/releases
+
+It has a graphical interface, and you only need select the main .bin file (eg. RippleV3-Bluetooth-TTGOV2.bin), not the -partitions.bin file, select the serial port, and click the 'Flash ESP'.
+
+## Flashing with Arduino tools - Pre-requisites
+
+You will need to install the Arduino IDE and add support for at least one of the following Boards:
  1. Adafruit Feather M0
- 2. TTGO WiFi Lora 32, v1 to v2 (ESP32)
- 2. Heltech WiFi Lora 32  (ESP32)
- 3. Sparkfun Lora Gateway (ESP32)
- 4. SParkfun Pro RF
+ 2. Seeeduino M0 family
+ 3. TTGO WiFi Lora 32, v1 to v2 (ESP32)
+ 4. Heltech WiFi Lora 32  (ESP32)
+ 5. Sparkfun Lora Gateway (ESP32)
+ 6. SParkfun Pro RF
  
 For help on getting ESP32 support installed see this article: https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/
-
-Alternatively, for flashing the ESP32 boards, you can just install the 'esptool' utility (ie. without the Arduino IDE). See here for instructions: https://github.com/espressif/esptool
 
 Checkout the firmware bin(ary) images to your local machine, and from the command-line, use one of the following command incantations to flash the firmware to your board (NOTE: each command is ONE line only!):
 
