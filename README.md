@@ -21,6 +21,12 @@ For help on getting ESP32 support installed see this article: https://randomnerd
 
 Checkout the firmware bin(ary) images to your local machine, and from the command-line, use one of the following command incantations to flash the firmware to your board (NOTE: each command is ONE line only!):
 
+# QWERTY Pager/Messenger
+
+## TTGO V1.6 to V2.1 boards
+
+~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoU~ART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 RippleQwerty-TTGOV2.bin 0x8000 RippleQwerty-TTGOV2.partitions.bin 
+
 # Ver 3 firmware builds (with 'commander' Low Power Mode support)
 
 ## Seeeduino Xiao
