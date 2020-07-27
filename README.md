@@ -7,6 +7,8 @@ There is a very handy flashing tool you can install for flashing the firmware bi
 
 It has a graphical interface, and you only need select the main .bin file (eg. RippleV3-Bluetooth-TTGOV2.bin), not the -partitions.bin file, select the serial port, and click the 'Flash ESP'.
 
+NOTE: when flashing the TTGO V2 boards, you must remove the micro SD card from the slot! (for some reason this interferes with the USB serial)
+
 ## Flashing with Arduino tools - Pre-requisites
 
 You will need to install the Arduino IDE and add support for at least one of the following Boards:
