@@ -49,6 +49,12 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 ~/Library/Arduino15/packages/Seeeduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleTrackerV3-USB-Xiao.bin -R 
 ```
 
+### Sensor Node - 433 to 915MHz (configurable),  (only USB-OTG supported)
+
+```shell
+~/Library/Arduino15/packages/Seeeduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleSensor-USB-Xiao.bin -R 
+```
+
 ## Adafruit Feather M0
 
 ### Repeater OR Messenger - 433 to 915MHz (configurable),  (USB-OTG)
