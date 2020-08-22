@@ -55,17 +55,14 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 ```shell
 ~/Library/Arduino15/packages/Seeeduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleTrackerV4-USB-Xiao.bin -R 
 ```
-
-
-# Ver 3 firmware builds (with 'commander' Low Power Mode support)
-
-## Seeeduino Xiao
-
 ### Sensor Node - 433 to 915MHz (configurable),  (only USB-OTG supported)
 
 ```shell
-~/Library/Arduino15/packages/Seeeduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleSensor-USB-Xiao.bin -R 
+~/Library/Arduino15/packages/Seeeduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleSensorV4-USB-Xiao.bin -R 
 ```
+
+
+# Ver 3 firmware builds (with 'commander' Low Power Mode support)
 
 ## Adafruit Feather M0
 
