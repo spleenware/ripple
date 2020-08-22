@@ -39,6 +39,17 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 /~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 /~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 RippleQwerty-TTGOV2-BB.bin 0x8000 RippleQwerty-TTGOV2-BB.partitions.bin
 ```
 
+# Ver 4 firmware builds (with new key exchange design)
+
+## Adafruit Feather M0
+
+### GPS Tracker Node - 433 to 915MHz (configurable),  (USB-OTG)
+
+```shell
+~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleTrackerV4-USB-feather.bin -R 
+```
+
+
 # Ver 3 firmware builds (with 'commander' Low Power Mode support)
 
 ## Seeeduino Xiao
@@ -61,11 +72,6 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ```shell
 ~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleV3-USB-feather.bin -R 
-```
-### GPS Tracker Node - 433 to 915MHz (configurable),  (USB-OTG)
-
-```shell
-~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleTrackerV3-USB-feather.bin -R 
 ```
 
 ## TTGO V1.6 to V2.1 boards
