@@ -61,6 +61,11 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 ~/Library/Arduino15/packages/Seeeduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleSensorV4-USB-Xiao.bin -R 
 ```
 
+### Repeater OR Messenger - 433 to 915MHz (configurable),  (USB-OTG only)
+
+```shell
+~/Library/Arduino15/packages/Seeeduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleV4-USB-Xiao.bin -R 
+```
 
 # Ver 3 firmware builds (with 'commander' Low Power Mode support)
 
