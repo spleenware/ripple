@@ -67,6 +67,14 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 ~/Library/Arduino15/packages/Seeeduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleV4-USB-Xiao.bin -R 
 ```
 
+## Heltech V2 boards
+
+### Repeater OR Messenger - 433 to 915MHz (configurable),  (USB-OTG only)
+
+```shell
+~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_qio_80m.bin 0x10000  Ripple-USB-heltech_v2.bin 0x8000 Ripple-USB-heltech_v2.partitions.bin 
+```
+
 # Ver 3 firmware builds (with 'commander' Low Power Mode support)
 
 ## Adafruit Feather M0
@@ -133,26 +141,6 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 Ripple-BLE.TTGO-V1.bin 0x8000 Ripple-BLE.TTGO-V1.partitions.bin 
-```
-
-## Heltech V2 boards
-
-### Repeater OR Messenger - 433 to 915MHz (configurable),  (USB-OTG only)
-
-```shell
-~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.2/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.2/tools/sdk/bin/bootloader_qio_80m.bin 0x10000 Ripple-USB-heltech_v2.bin 0x8000 Ripple-USB-heltech_v2.partitions.bin
-```
-
-### Messenger - 433 to 915MHz (configurable),  (Bluetooth LE)
-
-```shell
-~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_qio_80m.bin 0x10000 Ripple-BLE.Heltech-v2.bin 0x8000 Ripple-BLE.Heltech-v2.partitions.bin
-```
-
-### Messenger - 433 to 915MHz (configurable),  (Bluetooth Classic)
-
-```shell
-~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_qio_80m.bin 0x10000 Ripple-915-Bluetooth.heltec_v2_wifi_lora_32.bin 0x8000 Ripple-915-Bluetooth.heltech_v2.partitions.bin
 ```
 
 ## Sparkfun Lora Gateway
