@@ -80,6 +80,12 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_qio_80m.bin 0x10000 Ripple-Bluetooth-heltech_v2.bin 0x8000 Ripple-Bluetooth-heltech_v2.partitions.bin
 ```
 
+### Dedicated Repeater (with Post Office support) - 433 to 915MHz (configurable),  (USB-OTG only)
+
+```shell
+~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_qio_80m.bin 0x10000 RippleRepeater-heltec_v2.bin 0x8000 RippleRepeater-heltec_v2.partitions.bin
+```
+
 # Ver 3 firmware builds (with 'commander' Low Power Mode support)
 
 ## Adafruit Feather M0
