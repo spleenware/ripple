@@ -23,6 +23,11 @@ uint8_t pub_key[] = {0xB5,0x0B,0xCE,0x03,0x7A,0x92,0xE5,0xB2,0x11,0x79,0xC4,0xFA
 RippleMesh mesh;
 bool flash = false;
 unsigned long last_flash = 0;
+MeshRetrySender sender;
+unsigned long last_time = 0;
+unsigned long next_attempt = 0;
+
+#define TIMER_INTERVAL 60000  // 60 seconds
 
 void setup() {
   Serial1.begin(9600);
@@ -39,6 +44,51 @@ void setup() {
   if (!mesh.addContact(HOME_ID, "Home", "0000797E8D028622EF225C934BFA1033EF934E8EA6FBDE41C970FDC565D10000")) {  // enter the public key of the other node here
     Serial.println("Mesh.addContact() failed");
     haltFlash(3);
+  }
+
+  sender.to = 0;  // not active
+}
+
+void loop() {
+  MeshMessage msg;
+  if (mesh.receive(msg)) {
+    if (msg.from == FROM_ACK) {
+      // process incoming Ack
+      if (sender.to != 0 && mesh.isPendingAck(msg.timestampOrCrc, sender)) {
+        // Yay, we got an ack that our send was received
+        sender.to = 0;  // stop retries
+      }
+    } else {
+      // TODO: process incoming message
+    }
+  }
+
+  if ((unsigned long) (millis() - last_time) > TIMER_INTERVAL) {
+    last_time = millis();
+
+    int sensor_value = analogRead(SENSOR_ANALOG_PIN);
+    char text[64];
+    sprintf(text, "Sensor reading now %d", sensor_value);
+
+    sender = mesh.createSender(HOME_ID, millis() / 1000, text);
+    next_attempt = 0;
+  }
+
+  if (sender.to != 0 && millis() > next_attempt) {
+    if (mesh.trySend(sender)) {
+      // success, we now wait for an Ack
+      next_attempt = millis() + mesh.calcExpoBackoffDelay(sender);  // schedule our next send attempt
+    } else {
+      // max retries reached, send failed
+      sender.to = 0;    // cancel send
+    }
+  }
+
+  if ((unsigned long) (millis() - last_flash) > 500) {
+    last_flash = millis();
+
+    flash = !flash;   // flash the built LED to give us an idea if everything is still working
+    digitalWrite(LED_BUILTIN, flash ? LOW : HIGH);
   }
 }
 
@@ -60,32 +110,5 @@ void haltFlash(int count) {
       delay(300);
     }
     delay(1000);
-  }
-}
-
-unsigned long last_time = 0;
-
-#define TIMER_INTERVAL 60000  // 60 seconds
-
-void loop() {
-  MeshMessage msg;
-  if (mesh.receive(msg)) {
-    // TODO: process incoming message or Ack
-  }
-
-  if ((unsigned long) (millis() - last_time) > TIMER_INTERVAL) {
-    last_time = millis();
-
-    int sensor_value = analogRead(SENSOR_ANALOG_PIN);
-    char text[64];
-    sprintf(text, "Sensor reading now %d", sensor_value);
-    long expected_ack = mesh.sendMessage(HOME_ID, millis() / 1000, text);
-  }
-
-  if ((unsigned long) (millis() - last_flash) > 500) {
-    last_flash = millis();
-
-    flash = !flash;   // flash the built LED to give us an idea if everything is still working
-    digitalWrite(LED_BUILTIN, flash ? LOW : HIGH);
   }
 }

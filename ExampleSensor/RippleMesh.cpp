@@ -76,25 +76,53 @@ bool RippleMesh::addContact(uint8_t id, const char* name, const char *pub_key_he
   return false;  // something went wrong
 }
 
-long RippleMesh::sendMessage(uint8_t to, long timestamp, const char* text) {
-  if (strlen(text) >= 126) return false;  // too long
+MeshRetrySender RippleMesh::createSender(uint8_t to, long timestamp, const char* text) {
+  MeshRetrySender sender;
 
+  sender.to = to;
+  strncpy(sender._m, text, 126);
+  sender._m[126] = 0;
+  sender._t = timestamp;
+  sender._s = 0;
+  memset(sender._p, 0, sizeof(sender._p));
+
+  return sender;
+}
+
+bool RippleMesh::trySend(MeshRetrySender& sender) {
+  if (sender._s >= MAX_RETRIES) return false;  // max retries reached
+
+  sender._s++;
   _serial->print('t');
-  _serial->print((int) (int8_t) to);
+  _serial->print((int) (int8_t) sender.to);
   _serial->print(',');
-  _serial->print(timestamp);
-  _serial->print(",0,");  // seq no (for retries)
-  _serial->print(text);
+  _serial->print(sender._t);
+  _serial->print(',');
+  _serial->print((int)sender._s);
+  _serial->print(',');
+  _serial->print(sender._m);
   _serial->print('\n');
 
   char reply[32];
   readLine(reply, sizeof(reply));
   if (memcmp(reply, "O:", 2) == 0) {
     long crc = atol(&reply[2]);
-    return crc;  // success
+    sender._p[sender._s - 1] = crc;
+    return true;  // success
   }
 
-  return 0;  // something went wrong
+  return false;  // something went wrong
+}
+
+int RippleMesh::calcExpoBackoffDelay(const MeshRetrySender& sender) {
+  return 1000 * (sender._s * 3 / 2);
+}
+
+bool RippleMesh::isPendingAck(long crc, const MeshRetrySender& sender) {
+  for (int i = 0; i < sender._s; i++) {
+    if (sender._p[i] == crc) return true;
+  }
+  return false;
 }
 
 bool RippleMesh::receive(MeshMessage& msg) {
