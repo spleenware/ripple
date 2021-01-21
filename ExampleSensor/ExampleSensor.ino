@@ -41,7 +41,7 @@ void setup() {
     haltFlash(2);
   }
     // TODO: send clock info
-  if (!mesh.addContact(HOME_ID, "Home", "0000797E8D028622EF225C934BFA1033EF934E8EA6FBDE41C970FDC565D10000")) {  // enter the public key of the other node here
+  if (!mesh.addContact(HOME_ID, "Home", "6156797E8D028622EF225C934BFA1033EF934E8EA6FBDE41C970FDC565D11327")) {  // enter the public key of the other node here
     Serial.println("Mesh.addContact() failed");
     haltFlash(3);
   }
@@ -59,7 +59,15 @@ void loop() {
         sender.to = 0;  // stop retries
       }
     } else {
-      // TODO: process incoming message
+      if (strcmp(msg.text, "read") == 0) {  // an example 'command'
+        // read the sensor value
+        int sensor_value = analogRead(SENSOR_ANALOG_PIN);
+        char text[64];
+        sprintf(text, "Sensor: %d", sensor_value);
+
+        MeshRetrySender send_once = mesh.createSender(msg.from, millis() / 1000, text);
+        mesh.trySend(send_once);
+      }
     }
   }
 
