@@ -39,6 +39,12 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 /~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 /~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 RippleQwerty-TTGOV2-BB.bin 0x8000 RippleQwerty-TTGOV2-BB.partitions.bin
 ```
 
+### for Blackberry Q10 keyboard and Lilygo I2C module, and external OLED display (0x3D I2C)
+
+```shell
+~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 RippleQwerty-TTGOV2-BB-3D.bin 0x8000 RippleQwerty-TTGOV2-BB-3D.partitions.bin
+```
+
 # Ver 4 firmware builds (with new key exchange design)
 
 ## Adafruit Feather M0
