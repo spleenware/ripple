@@ -1,5 +1,18 @@
-# ripple
-Arduino Firmware for Ripple LoRa mesh
+# Ripple
+This project is an IOT LoRa mesh, typically for closed systems either involving sensors and/or users with dedicated pagers or companion Android devices.
+
+## Devices and Roles
+
+There are a number of firmwares now supported for a variety of development boards. Not all combinations are supported, however. Below is a matrix of the boards and firmwares currently supported:
+
+|   | TTGO V2 | Heltec V2 | Adafruit Feather LoRa | Seeed Xiao |
+| Pager/Messenger (USB-OTG) |  Yes | Yes | Yes | Yes |
+| Pager/Messenger (Bluetooth) |  Yes | Yes | - | - |
+| Repeater |  Yes | Yes |  - |  - |
+| Sensor |  - | Yes |  Yes |  Yes |
+| GPS Tracker |  - | Yes | Yes | Yes |
+| QWERTY Pager |  Yes | - | - | - |
+| Tactical |  Yes | Yes | - | - |
 
 ## ESP Targets (flashing)
 
