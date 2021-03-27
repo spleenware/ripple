@@ -13,7 +13,18 @@ There are a number of firmwares now supported for a variety of development board
 | Sensor |  - | Yes |  Yes |  Yes |
 | GPS Tracker |  - | Yes | Yes | Yes |
 | QWERTY Pager |  Yes | - | - | - |
-| Tactical |  Yes | Yes | - | - |
+| Tactical (Bluetooth) |  Yes | Yes | - | - |
+| GeoPager | (now deprecated) | - | - | - |
+
+Users of the Ripple Messenger Android app connect a device either over USB-OTG cable or Bluetooth, using one of the 'Pager/Messenger' firmware targets. This is also the case for the admin monitoring a sensor mesh using the Ripple Commander app.
+
+Users of the Ripple Tactical Android app connect a device with one of the Tactical firmware targets, with only Bluetooth currently supported.
+
+The 'QWERTY pager' firmware is for the stand-alone pager devices which don't require a companion Android. These are for text messaging among other QWERTY pagers and/or users with the Ripple Messenger app. These can also work with the Repeater devices.
+
+The Sensor and GPS Tracker devices are initially connected over USB-OTG, to an Android device running Ripple Commander app, for just the configuration, but then operate on their own afterwards. The Commander app then monitors them using a Pager/Messenger flashed device (either over USB or Bluetooth).
+
+There was a firmware for a sland-alone pager with GPS, called GeoPager, which is now deprecated, superceded by the Ripple Tactical app + firmware.
 
 ## ESP Targets (flashing)
 
@@ -63,7 +74,7 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ## Adafruit Feather M0
 
-### GPS Tracker Node - 433 to 915MHz (configurable),  (USB-OTG)
+### GPS Tracker Node - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleTrackerV5-Feather.bin -R 
@@ -80,18 +91,18 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ## Seeeduino Xiao
 
-### GPS Tracker Node - 433 to 915MHz (configursble), (USB-OTG)
+### GPS Tracker Node - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/Seeeduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleTrackerV4-USB-Xiao.bin -R 
 ```
-### Sensor Node - 433 to 915MHz (configurable),  (only USB-OTG supported)
+### Sensor Node - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/Seeeduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleSensorV4-USB-Xiao.bin -R 
 ```
 
-### Repeater OR Messenger - 433 to 915MHz (configurable),  (USB-OTG only)
+### Messenger (USB-OTG) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/Seeeduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleV4-USB-Xiao.bin -R 
@@ -99,7 +110,7 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ## TTGO V2
 
-### Dedicated Repeater (with Post Office support) - 433 to 915MHz (configurable),  (USB-OTG only)
+### Dedicated Repeater (with Post Office support) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 RippleRepeater-TTGOV2.bin 0x8000 RippleRepeater-TTGOV2.partitions.bin
@@ -107,18 +118,18 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ## Heltech V2 boards
 
-### Repeater OR Messenger - 433 to 915MHz (configurable),  (USB-OTG only)
+### Messenger (USB-OTG only) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_qio_80m.bin 0x10000  Ripple-USB-heltech_v2.bin 0x8000 Ripple-USB-heltech_v2.partitions.bin 
 ```
-### Messenger - 433 to 915MHz (configurable), (Bluetooth Classic)
+### Messenger (Bluetooth Classic) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_qio_80m.bin 0x10000 Ripple-Bluetooth-heltech_v2.bin 0x8000 Ripple-Bluetooth-heltech_v2.partitions.bin
 ```
 
-### Dedicated Repeater (with Post Office support) - 433 to 915MHz (configurable),  (USB-OTG only)
+### Dedicated Repeater (with Post Office support) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_qio_80m.bin 0x10000 RippleRepeater-heltec_v2.bin 0x8000 RippleRepeater-heltec_v2.partitions.bin
@@ -128,7 +139,7 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ## Adafruit Feather M0
 
-### Repeater OR Messenger - 433 to 915MHz (configurable),  (USB-OTG)
+### Messenger (USB-OTG) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleV3-USB-feather.bin -R 
@@ -136,13 +147,13 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ## TTGO V1.6 to V2.1 boards
 
-### Messenger - 433 to 915MHz (configurable),  (Bluetooth Classic)
+### Messenger (Bluetooth Classic) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_dio_80m.bin 0x10000  RippleV3-Bluetooth-TTGOV2.bin 0x8000 RippleV3-Bluetooth-TTGOV2.partitions.bin 
 ```
 
-### Repeater OR Messenger - 433 to 915MHz (configurable),  (USB-OTG only)
+### Messenger (USB-OTG) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoU~ART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 RippleV3-USB-TTGOV2.bin 0x8000 RippleV3-USB-TTGOV2.partitions.bin
@@ -152,19 +163,19 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ## Adafruit Feather M0
 
-### Repeater OR Messenger - 433 to 915MHz (configurable),  (USB-OTG only)
+### Messenger (USB-OTG) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v Ripple-USB.Feather_m0.bin -R 
 ```
 
-### GPS Tracker Node - 433 to 915MHz (configurable),  (only USB-OTG supported)
+### GPS Tracker Node - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleTracker-915-USB.feather_m0.bin -R 
 ```
 
-### Sensor Node - 433 to 915MHz (configurable),  (only USB-OTG supported)
+### Sensor Node - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleSensor-915-USB.feather_m0.bin -R 
@@ -172,7 +183,7 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ## Sparkfun Pro RF
 
-### Repeater OR Messenger - 433 to 915MHz (configurable),  (USB-OTG only)
+### Messenger (USB-OTG) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0-arduino3/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v Ripple-USB-Sparkfun-Pro.bin -R 
@@ -180,13 +191,13 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ## TTGO/Heltech V1 boards
 
-### Repeater OR Messenger - 433 to 915MHz (configurable),  (USB-OTG only)
+### Messenger (USB-OTG) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 Ripple-USB.TTGO-V1.bin 0x8000 Ripple-USB.TTGO-V1.partitions.bin 
 ```
 
-### Messenger - 433 to 915MHz (configurable),  (Bluetooth LE)
+### Messenger (Bluetooth LE) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 Ripple-BLE.TTGO-V1.bin 0x8000 Ripple-BLE.TTGO-V1.partitions.bin 
@@ -194,13 +205,13 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ## Sparkfun Lora Gateway
 
-### Repeater OR Messenger - 433 to 915MHz (configurable),  (USB-OTG only)
+### Messenger (USB-OTG) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.2/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.2/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 Ripple-USB-Sparkfun.bin 0x8000 Ripple-USB-Sparkfun.partitions.bin 
 ```
 
-### Messenger - 433 to 915MHz (configurable),  (Bluetooth Classic)
+### Messenger (Bluetooth Classic) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.2/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.2/tools/sdk/bin/bootloader_qio_80m.bin 0x10000 Ripple-Bluetooth.Sparkfun.bin 0x8000 Ripple-Bluetooth.Sparkfun.partitions.bin 
@@ -208,25 +219,25 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ## TTGO V1.6 to V2.1 boards
 
-### Messenger - 433 to 915MHz (configurable),  (Bluetooth Classic)
+### Messenger (Bluetooth Classic) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 Ripple-Bluetooth.TTGOV2.bin 0x8000 Ripple-Bluetooth.TTGOV2.partitions.bin 
 ```
 
-### Messenger - 433 to 915MHz (configurable),  (Bluetooth LE)
+### Messenger (Bluetooth LE) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 Ripple-BLE.TTGOV2.bin 0x8000 Ripple-BLE.TTGOV2.partitions.bin 
 ```
 
-### Repeater OR Messenger - 433 to 915MHz (configurable),  (USB-OTG only)
+### Messenger (USB-OTG) - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 Ripple-USB.TTGOV2.bin 0x8000 Ripple-USB.TTGOV2.partitions.bin
 ```
 
-### GeoPager Node - 433 to 915MHz (configurable), (only USB-OTG supported)
+### GeoPager Node - 433 to 915MHz (configurable)
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 Ripple-GeoPager-TTGOV2.bin 0x8000 Ripple-GeoPager-TTGOV2.partitions.bin 
