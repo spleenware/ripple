@@ -6,6 +6,7 @@ This project is an IOT LoRa mesh, typically for closed systems either involving 
 There are a number of firmwares now supported for a variety of development boards. Not all combinations are supported, however. Below is a matrix of the boards and firmwares currently supported:
 
 |   | TTGO V2 | Heltec V2 | Adafruit Feather LoRa | Seeed Xiao |
+| ------------- | ------ | ----- | ----- | ----- |
 | Pager/Messenger (USB-OTG) |  Yes | Yes | Yes | Yes |
 | Pager/Messenger (Bluetooth) |  Yes | Yes | - | - |
 | Repeater |  Yes | Yes |  - |  - |
