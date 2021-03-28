@@ -3,9 +3,15 @@ This project is an IOT LoRa mesh, typically for closed systems either involving 
 
 ## Devices and Roles
 
+Here are links to the currently supported devices:
+* [TTGO LoRa32 V2](https://www.digitspace.com/products/wireless-iot/lpwan/lora/lora32-v2-1-esp32-oled-0-96inch-ble-wifi-wireless-module-ip5306-915mhz?0304c1269e4c81b4){:target="_blank"}
+* [Heltec LoRa32 V2](https://heltec.org/project/wifi-lora-32/){:target="_blank"}
+* [Adafruit Feather LoRa](https://www.adafruit.com/product/3178){:target="_blank"}
+* [Seeed Xiao](https://www.seeedstudio.com/Seeeduino-XIAO-Arduino-Microcontroller-SAMD21-Cortex-M0+-p-4426.html){:target="_blank"}
+
 There are a number of firmwares now supported for a variety of development boards. Not all combinations are supported, however. Below is a matrix of the boards and firmwares currently supported:
 
-|   | TTGO V2 | Heltec V2 | Adafruit Feather LoRa | Seeed Xiao |
+|   | TTGO V2 | Heltec V2 | Adafruit Feather LoRa | Seeed Xiao + RFM95 |
 | ------------- | ------ | ----- | ----- | ----- |
 | Pager/Messenger (USB-OTG) |  Yes | Yes | Yes | Yes |
 | Pager/Messenger (Bluetooth) |  Yes | Yes | - | - |
