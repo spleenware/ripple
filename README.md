@@ -11,16 +11,16 @@ Here are links to the currently supported devices:
 
 There are a number of firmwares now supported for a variety of development boards. Not all combinations are supported, however. Below is a matrix of the boards and firmwares currently supported:
 
-|   | TTGO V2 | Heltec V2 | Adafruit Feather LoRa | Seeed Xiao + RFM95 |
+|   | TTGO V2 | Heltec V2 | Adafruit Feather LoRa | Seeed Xiao + RFM95 | Seeed Xiao + SX1262 |
 | ------------- | ------ | ----- | ----- | ----- |
-| Pager/Messenger (USB-OTG) |  Yes | Yes | Yes | Yes |
-| Pager/Messenger (Bluetooth) |  Yes | Yes | - | - |
-| Repeater |  Yes | Yes |  - |  - |
-| Sensor |  - | Yes |  Yes |  Yes |
-| GPS Tracker | Yes | Yes | Yes | Yes |
-| QWERTY Pager |  Yes | - | - | - |
-| Tactical (Bluetooth) |  Yes | Yes | - | - |
-| GeoPager | (now deprecated) | - | - | - |
+| Pager/Messenger (USB-OTG) |  Yes | Yes | Yes | Yes | Yes |
+| Pager/Messenger (Bluetooth) |  Yes | Yes | - | - | - |
+| Repeater |  Yes | Yes |  - |  - | - |
+| Sensor |  - | Yes |  Yes |  Yes | Yes |
+| GPS Tracker | Yes | Yes | Yes | Yes | Yes |
+| QWERTY Pager |  Yes | - | - | - | - |
+| Tactical (Bluetooth) |  Yes | Yes | - | - | - |
+| GeoPager | Yes | - | - | - | Yes |
 
 Users of the Ripple Messenger Android app connect a device either over USB-OTG cable or Bluetooth, using one of the 'Pager/Messenger' firmware targets. This is also the case for the admin monitoring a sensor mesh using the Ripple Commander app.
 
@@ -30,7 +30,7 @@ The 'QWERTY pager' firmware is for the stand-alone pager devices which don't req
 
 The Sensor and GPS Tracker devices are initially connected over USB-OTG, to an Android device running Ripple Commander app, for just the configuration, but then operate on their own afterwards. The Commander app then monitors them using a Pager/Messenger flashed device (either over USB or Bluetooth).
 
-There was a firmware for a sland-alone pager with GPS, called GeoPager, which is now deprecated, superceded by the Ripple Tactical app + firmware.
+There is a firmware for a sland-alone pager with GPS, called GeoPager. This has been superceded by the Ripple Tactical app + firmware.
 
 ## ESP Targets (flashing)
 
