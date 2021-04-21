@@ -12,7 +12,7 @@ Here are links to the currently supported devices:
 There are a number of firmwares now supported for a variety of development boards. Not all combinations are supported, however. Below is a matrix of the boards and firmwares currently supported:
 
 |   | TTGO V2 | Heltec V2 | Adafruit Feather LoRa | Seeed Xiao + RFM95 | Seeed Xiao + SX1262 |
-| ------------- | ------ | ----- | ----- | ----- |
+| ------------- | ------ | ----- | ----- | ----- | ----- |
 | Pager/Messenger (USB-OTG) |  Yes | Yes | Yes | Yes | Yes |
 | Pager/Messenger (Bluetooth) |  Yes | Yes | - | - | - |
 | Repeater |  Yes | Yes |  - |  - | - |
