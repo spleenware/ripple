@@ -18,7 +18,7 @@ There are a number of firmwares now supported for a variety of development board
 | Repeater |  Yes | Yes |  - |  - | - |
 | Sensor |  - | Yes |  Yes |  Yes | Yes |
 | GPS Tracker | Yes | Yes | Yes | Yes | Yes |
-| QWERTY Pager |  Yes | - | - | - | - |
+| QWERTY Pager |  Yes | Yes | - | - | - |
 | Tactical (Bluetooth) |  Yes | Yes | - | - | - |
 | GeoPager | Yes | - | - | - | Yes |
 
