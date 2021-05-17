@@ -11,16 +11,16 @@ Here are links to the currently supported devices:
 
 There are a number of firmwares now supported for a variety of development boards. Not all combinations are supported, however. Below is a matrix of the boards and firmwares currently supported:
 
-|   | TTGO V2 | Heltec V2 | Adafruit Feather LoRa | Seeed Xiao + RFM95 | Seeed Xiao + SX1262 |
-| ------------- | ------ | ----- | ----- | ----- | ----- |
-| Pager/Messenger (USB-OTG) |  Yes | Yes | Yes | Yes | Yes |
-| Pager/Messenger (Bluetooth) |  Yes | Yes | - | - | - |
-| Repeater |  Yes | Yes |  - |  - | - |
-| Sensor |  - | Yes |  Yes |  Yes | Yes |
-| GPS Tracker | Yes | Yes | Yes | Yes | Yes |
-| QWERTY Pager |  Yes | Yes | - | - | - |
-| Tactical (Bluetooth) |  Yes | Yes | - | - | - |
-| GeoPager | Yes | - | - | - | Yes |
+|   | TTGO V2 | Heltec V2 | Adafruit Feather LoRa | Seeed Xiao + RFM95 | Seeed Xiao + SX1262 | T-Beam v1.1 |
+| ------------- | ------ | ----- | ----- | ----- | ----- | -------- |
+| Pager/Messenger (USB-OTG) |  Yes | Yes | Yes | Yes | Yes | - |
+| Pager/Messenger (Bluetooth) |  Yes | Yes | - | - | - | - |
+| Repeater |  Yes | Yes |  - |  - | - | - |
+| Sensor |  - | Yes |  Yes |  Yes | Yes | - |
+| GPS Tracker | Yes | Yes | Yes | Yes | Yes | Yes |
+| QWERTY Pager |  Yes | Yes | - | - | - | - |
+| Tactical (Bluetooth) |  Yes | Yes | - | - | - | - |
+| GeoPager | Yes | - | - | - | Yes | - |
 
 Users of the Ripple Messenger Android app connect a device either over USB-OTG cable or Bluetooth, using one of the 'Pager/Messenger' firmware targets. This is also the case for the admin monitoring a sensor mesh using the Ripple Commander app.
 
@@ -139,6 +139,14 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ```shell
 ~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_qio_80m.bin 0x10000 RippleRepeater-heltec_v2.bin 0x8000 RippleRepeater-heltec_v2.partitions.bin
+```
+
+## TTGO T-Beam v1.1 boards
+
+### GPS Tracker Node - 433 to 915MHz (configurable)
+
+```shell
+~/Library/Arduino15/packages/esp32/tools/esptool_py/2.6.1/esptool --chip esp32 --port /dev/cu.SLAB_USBtoUART --baud 921600 --before default_reset --after hard_reset write_flash -z --flash_mode dio --flash_freq 80m --flash_size detect 0xe000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/partitions/boot_app0.bin 0x1000 ~/Library/Arduino15/packages/esp32/hardware/esp32/1.0.4/tools/sdk/bin/bootloader_dio_80m.bin 0x10000 RippleTrackerV5-TBeam.bin 0x8000 RippleTrackerV5-TBeam.partitions.bin
 ```
 
 # Ver 3 firmware builds (with 'commander' Low Power Mode support)
