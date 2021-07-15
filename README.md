@@ -80,6 +80,11 @@ Checkout the firmware bin(ary) images to your local machine, and from the comman
 
 ## Adafruit Feather M0
 
+### Messenger Node - 433 to 915MHz (configurable)
+
+```shell
+~/Library/Arduino15/packages/arduino/tools/bossac/1.7.0/bossac -i -d --port=cu.usbmodem14101 -U true -i -e -w -v RippleV5-USB-feather.bin -R 
+```
 ### GPS Tracker Node - 433 to 915MHz (configurable)
 
 ```shell
