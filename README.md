@@ -16,7 +16,7 @@ There are a number of firmwares now supported for a variety of development board
 | Pager/Messenger (USB-OTG) |  Yes | Yes | Yes | Yes | Yes | Yes |
 | Pager/Messenger (Bluetooth) |  Yes | Yes | - | - | - | Yes |
 | Repeater |  Yes | Yes |  - |  - | - | - |
-| Sensor |  - | Yes |  Yes |  Yes | Yes | - |
+| Sensor |  Yes | Yes |  Yes |  Yes | Yes | - |
 | GPS Tracker | Yes | Yes | Yes | Yes | Yes | Yes |
 | QWERTY Pager |  Yes | Yes | - | - | - | - |
 | Tactical (Bluetooth) |  Yes | Yes | - | - | - | - |
