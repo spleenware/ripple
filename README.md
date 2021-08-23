@@ -13,8 +13,8 @@ There are a number of firmwares now supported for a variety of development board
 
 |   | TTGO V2 | Heltec V2 | Adafruit Feather LoRa | Seeed Xiao + RFM95 | Seeed Xiao + SX1262 | T-Beam v1.1 |
 | ------------- | ------ | ----- | ----- | ----- | ----- | -------- |
-| Pager/Messenger (USB-OTG) |  Yes | Yes | Yes | Yes | Yes | - |
-| Pager/Messenger (Bluetooth) |  Yes | Yes | - | - | - | - |
+| Pager/Messenger (USB-OTG) |  Yes | Yes | Yes | Yes | Yes | Yes |
+| Pager/Messenger (Bluetooth) |  Yes | Yes | - | - | - | Yes |
 | Repeater |  Yes | Yes |  - |  - | - | - |
 | Sensor |  - | Yes |  Yes |  Yes | Yes | - |
 | GPS Tracker | Yes | Yes | Yes | Yes | Yes | Yes |
