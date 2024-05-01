@@ -66,6 +66,8 @@
 #include <SPIFFS.h>
 #endif
 
+#include "copyright.h"
+
 
 uint32_t lon2tilex(double lon, uint8_t zoom) {
   int zs = 1 << zoom;
@@ -162,6 +164,13 @@ void setup(void) {
       DBG_OUTPUT_PORT.printf("\n");
   }
 
+  {
+    File cr = FILESYSTEM.open("/copyright.png", "w");
+    if (cr) {
+      cr.write(copyright, sizeof(copyright));
+      cr.close();
+    }
+  }
 
   //WIFI INIT
   DBG_OUTPUT_PORT.printf("Connecting to %s\n", WIFI_SSID);
