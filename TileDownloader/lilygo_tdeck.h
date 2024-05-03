@@ -3,3 +3,5 @@
 #define SD_MISO 38
 #define SD_MOSI 41
 #define SD_CS   39
+
+#define FST  FS_SD
