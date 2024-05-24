@@ -188,6 +188,16 @@ void setup(void) {
   DBG_OUTPUT_PORT.print("\n");
  // DBG_OUTPUT_PORT.setDebugOutput(true);
 
+#ifdef BOARD_POWERON
+  pinMode(BOARD_POWERON, OUTPUT);
+  digitalWrite(BOARD_POWERON, HIGH);
+#endif
+
+#ifdef DISPLAY_CS
+  pinMode(DISPLAY_CS, OUTPUT);
+  digitalWrite(DISPLAY_CS, HIGH);
+#endif
+
 #if LORA_CS >= 0
   pinMode(LORA_CS, OUTPUT);
   digitalWrite(LORA_CS, HIGH);   // LoRa module on same SPI bus as SD card, so de-select
